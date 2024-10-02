@@ -1,0 +1,53 @@
+<html>
+<head><title>GCD of two numbers</title>
+<script language="javascript">
+function gcd()
+{
+var x,y;
+x=parseInt(document.f1.t1.value);
+y=parseInt(document.f1.t2.value);
+while(x!=y)
+{
+if(x>y)
+x=x-y;
+else
+y=y-x;
+}
+document.f1.t3.value=x;
+}
+</script>
+</head>
+<body>
+<h1>Program to find GCD of two numbers</h1>
+<form name="f1">
+Enter first number:<input type=text name="t1"><br>
+Enter second number:<input type=text name="t2"><br>
+GCD:<input type=text name="t3"><br>
+<input type="button" name="btn" value="Find GCD" onClick="gcd()">
+</form>
+</body>
+</html>
+
+
+-------------------------------------------------------------------------------
+
+package packageGCD;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class gcdclass {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.chrome.driver","D:\\TYCS_RANJEET_TecH_R
+C\\TYCS_RANJEET_TecH_RC\\Selenium\\chromedriver.exe");
+WebDriver driver=new ChromeDriver();
+driver.get("http://localhost//findgcd.html");
+driver.manage().window().maximize();
+driver.findElement(By.name("t1")).sendKeys("12");
+driver.findElement(By.name("t2")).sendKeys("18");
+driver.findElement(By.name("btn")).click();
+String
+result=driver.findElement(By.name("t3")).getAttribute("value");
+System.out.println("GCD is : "+result);
+}
+}
