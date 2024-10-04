@@ -1,0 +1,56 @@
+Practical 3
+
+
+CCipherService.java
+
+
+package com.abc;
+
+import java.util.Random;
+import javax.jws.WebService;
+impart javax.jws.WebMethod;
+import java.jws.WebParam;
+
+@WebService(serviceName = "CCipherService")
+public class CCipherService{
+@WebMethod(operationName="encrypt")
+public String encrypt(@WebParam(name="name") String msg){
+String ct="";
+Random rd=new Random();
+
+for(int i=O; i<msg.length(); i++) {
+ct+=(char) (msg.charAt(i)+rd.nextInt(26));
+}
+return ct;
+}
+}
+
+
+---------------------------------------------------------------
+
+CCipherClient.java :
+
+
+package ccipherclient;
+
+import java.util.Scanner;
+
+public class CCiperClient{
+ public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter message");
+String msg=sc.next();
+System.out.println("Encrypted message: "+encrypt(msg));
+}
+
+private static String encrypt(java.lang.String name){
+com.abc.CCipherService_Service = new com.abc.CCipherService_Service();
+com.abc.CCipherService port = service.getCCipherServicePort();
+return port.encrypt(name);
+}}
+
+
+----------------------------------------------------------------------------------------
+
+
+
